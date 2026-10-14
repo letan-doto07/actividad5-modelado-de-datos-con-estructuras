@@ -1,0 +1,24 @@
+# Ignorar archivos comunes
+# Archivos binarios/objetos
+*.exe
+*.out
+*.o
+*.obj
+
+# Carpetas IDE / editor
+.vscode/
+.idea/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de compilación
+build/
+
+# Dependencias
+*.lib
+*.a
+
+# Otros
+*.log
