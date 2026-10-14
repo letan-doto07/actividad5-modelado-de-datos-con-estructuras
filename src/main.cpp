@@ -1,33 +1,61 @@
+/* 
+   ====================================================================
+   Materia: Laboratorio de Programación (LPR) — 5°
+   Archivo: src/main.cpp
+   Actividad 5: Modelado de datos con Structs y Punteros
+   ====================================================================
+
+*/
+
 #include <iostream>
-#include <string>
+#include <cstring>
 
-struct Punto {
-    int x;
-    int y;
+using namespace std;
+
+// 1. DEFINICIÓN DE LA ESTRUCTURA (Adaptada a un ejemplo de Proyecto Integrador: Sensor Ambiental)
+struct EntidadProyecto {
+    int id;
+    char nombre[50];
+    float metrica; // En este ejemplo representará la temperatura en °C o humedad
 };
 
-// Ejemplo de una "clase proxy" que permite usar operator->
-class PuntoProxy {
-private:
-    Punto p;
-public:
-    PuntoProxy(int x, int y) : p{x, y} {}
-    // operator-> devuelve un puntero al Punto interno
-    Punto* operator->() { return &p; }
-};
+// Prototipo de función con pasaje por dirección mediante puntero
+void cargarDatos(EntidadProyecto* ptr);
 
 int main() {
-    // Uso directo de struct
-    Punto a{3, 4};
-    std::cout << "Punto a: (" << a.x << ", " << a.y << ")\n";
+    // CAMBIAR: Coloca tu Nombre y Apellido real en la inicialización de seguridad
+    EntidadProyecto miEntidad = {0, "Vacio - Juan Perez", 0.0f};
 
-    // Puntero a struct y operador ->
-    Punto *ptr = &a;
-    std::cout << "Usando puntero: (" << ptr->x << ", " << ptr->y << ")\n";
+    cout << "=====================================================" << endl;
+    // CAMBIAR: Coloca tu Nombre y Apellido real en el encabezado de la consola
+    cout << "  MODELADO STRUCT - ESTUDIANTE: Juan Perez " << endl;
+    cout << "=====================================================" << endl;
 
-    // Uso del proxy que sobrecarga operator->
-    PuntoProxy proxy(7, 9);
-    std::cout << "Proxy acceso con ->: (" << proxy->x << ", " << proxy->y << ")\n";
+    // Invocación enviando la dirección física de memoria con '&'
+    cargarDatos(&miEntidad);
 
-    return 0;
+    cout << "\n=== DATOS VERIFICADOS EN LA MEMORIA RAM ===" << endl;
+    cout << "ID Registrado:     " << miEntidad.id << endl;
+    cout << "Nombre Registrado: " << miEntidad.nombre << endl;
+    cout << "Metrica Guardada:  " << miEntidad.metrica << endl;
+    cout << "Direccion RAM Hexadecimal: " << &miEntidad << endl;
+    cout << "=====================================================" << endl;
+
+    return 0; // Código 0: Finalización exitosa
+}
+
+void cargarDatos(EntidadProyecto* ptr) {
+    cout << "\n--- INGRESO DE DATOS MEDIANTE OPERADOR FLECHA ---" << endl;
+    
+    cout << "=> Ingrese el ID de la entidad (entero): ";
+    cin >> ptr->id;
+    
+    // Limpieza del buffer obligatoria antes de cin.getline
+    cin.ignore(); 
+    
+    cout << "=> Ingrese el Nombre o Descripcion (Ej: Sensor_DHT22): ";
+    cin.getline(ptr->nombre, 50);
+    
+    cout << "=> Ingrese la Metrica de Operacion (Ej de lectura/float): ";
+    cin >> ptr->metrica;
 }
