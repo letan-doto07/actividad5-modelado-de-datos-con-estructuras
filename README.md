@@ -1,28 +1,12 @@
-# SistemaProyecto (Actividad 5) - Modelado de datos con estructuras
+Proyecto:modelado de datos con estructuras
 
-Integrantes:
-- Nombre Apellido 1
-- Nombre Apellido 2
-- Nombre Apellido 3
 
-Descripción:
-Repositorio de la Actividad 5: Modelado de datos con estructuras en C++. Contiene la estructura sugerida para entregar el proyecto, documentación y evidencias.
+Integrantes: Leon Melgarejo
 
-Estructura del repositorio:
+Descripción: Repositorio con la suite de retos del taller de repaso general. Contiene entregables, manuales y evidencias.
 
-sistemaproyecto/
-├── .gitignore
-├── LICENSE
-├── README.md
-├── docs/
-│   └── InformeEEST1_LPR2026_ACT05_G03_v1.0.0.pdf  <-- ENTREGABLE EN PDF (reemplazar con el PDF final)
-│   └── manuales/
-│       └── manual_programador_v1.0.0.pdf        <-- Explicación en PDF (opcional)
-│       └── manual_programador_v1.0.0.md         <-- Manual del programador (explicación de struct y operador ->)
-├── src/
-│   └── main.cpp
-└── capturas/
-    └── ejecucion_struct.png                      <-- Evidencia de ejecución (agregar captura)
+Estructura:
 
-Notas:
-- Reemplace los archivos "placeholder" (.pdf, .png) por los ficheros reales antes de la entrega.
+docs/ : Entregables formales y manuales src/ : Código fuente en C++ con main unificado capturas/ : Evidencias de ejecución Cómo usar Compilar con g++:
+
+g++ -std=c++17 -O2 src/main.cpp -o bin/repasogeneral ./bin/repasogeneral
